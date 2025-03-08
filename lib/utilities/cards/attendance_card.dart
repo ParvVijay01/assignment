@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AttendanceComponent extends StatelessWidget {
-  const AttendanceComponent({super.key});
+  final List<double> attendanceValues; // Dynamic attendance values
+  final List<String> subjects; // Subject names
+
+  const AttendanceComponent({
+    super.key,
+    required this.attendanceValues,
+    required this.subjects,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +18,7 @@ class AttendanceComponent extends StatelessWidget {
       decoration: const BoxDecoration(color: Color(0xFFF3F3F3)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: List.generate(4, (index) {
+        children: List.generate(attendanceValues.length, (index) {
           return Column(
             children: [
               Stack(
@@ -21,15 +28,15 @@ class AttendanceComponent extends StatelessWidget {
                     height: 60,
                     width: 60,
                     child: CircularProgressIndicator(
-                      value: 0.42,
+                      value: attendanceValues[index], // Dynamic value
                       backgroundColor: Colors.grey.shade300,
                       color: Colors.blue,
                       strokeWidth: 5,
                     ),
                   ),
-                  const Text(
-                    "42%",
-                    style: TextStyle(
+                  Text(
+                    "${(attendanceValues[index] * 100).toInt()}%", // Convert to percentage
+                    style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
@@ -38,9 +45,9 @@ class AttendanceComponent extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 5),
-              const Text(
-                "Attendance",
-                style: TextStyle(
+              Text(
+                subjects[index], // Dynamic subject names
+                style: const TextStyle(
                   fontSize: 12,
                   color: Colors.black,
                   fontWeight: FontWeight.w500,

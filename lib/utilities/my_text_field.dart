@@ -5,6 +5,8 @@ class MyTextField extends StatefulWidget {
   final TextInputType keyboardType;
   final String hintText;
   final bool obscureText;
+  final String? Function(String?)? validator;
+  final FocusNode? focusNode;
 
   const MyTextField({
     super.key,
@@ -12,6 +14,8 @@ class MyTextField extends StatefulWidget {
     required this.hintText,
     required this.keyboardType,
     required this.obscureText,
+    this.validator,
+    this.focusNode,
   });
 
   @override
@@ -65,6 +69,8 @@ class _MyTextFieldState extends State<MyTextField> {
                   )
                   : null,
         ),
+        validator: widget.validator,
+        focusNode: widget.focusNode,
       ),
     );
   }

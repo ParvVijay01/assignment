@@ -77,7 +77,7 @@ class HomeroomCard extends StatelessWidget {
             // Foreground Image
             Positioned(
               left: MediaQuery.of(context).size.width / 1.8,
-              top: 20,
+              top: 15,
               child: SizedBox(
                 width: 200,
                 height: 200,

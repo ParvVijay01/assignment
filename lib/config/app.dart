@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/features/Home/home.dart';
-import 'package:test1/features/home2/home_2.dart';
+import 'package:test1/features/auth/login/login_screen.dart';
 import 'package:test1/theme/light_theme.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
-      home: const HomeScreen2(),
+      home: const LoginScreen(),
     );
   }
 }

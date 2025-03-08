@@ -112,10 +112,23 @@ class _HomeScreen2State extends State<HomeScreen2> {
             ),
           ),
           const SizedBox(height: 10),
-          const StudentCard(numberText: "1"),
-          const AttendanceComponent(),
-          const SizedBox(height: 20),
-          const StudentCard(numberText: "2"),
+          const StudentCard(
+            numberText: "1",
+            expandedCard: AttendanceComponent(
+              attendanceValues: [0.85, 0.72, 0.81, 0.42],
+              subjects: ["Maths", "English", "Science", "History"],
+            ),
+            studentName: "Parv Vijayvargiya",
+          ),
+          const SizedBox(height: 10),
+          const StudentCard(
+            numberText: "2",
+            expandedCard: AttendanceComponent(
+              attendanceValues: [0.38, 0.80, 0.65, 0.78],
+              subjects: ["Maths", "English", "Science", "History"],
+            ),
+            studentName: "Vishal Bala",
+          ),
         ],
       ),
     );
